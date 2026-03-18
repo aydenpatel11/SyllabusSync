@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus to Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>📚 Syllabus to Calendar</h1>
+            <p class="subtitle">Extract academic events from your syllabus and add them to Google Calendar</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="upload-box" id="uploadBox">
+                <input type="file" id="fileInput" accept=".pdf,.txt,.text,.md" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📄</div>
+                    <p class="upload-text">Drop your syllabus here or <span class="browse-link">browse</span></p>
+                    <p class="upload-hint">Supports PDF, TXT files</p>
+                </div>
+            </div>
+            <button id="uploadBtn" class="btn btn-primary" disabled>
+                Extract Events
+            </button>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Analyzing your syllabus...</p>
+        </div>
+
+        <!-- Events Section -->
+        <section id="eventsSection" class="events-section hidden">
+            <div class="section-header">
+                <h2>Extracted Events (<span id="eventCount">0</span>)</h2>
+                <button id="addToCalendarBtn" class="btn btn-success">
+                    📅 Add All to Google Calendar
+                </button>
+            </div>
+
+            <div class="events-table-container">
+                <table class="events-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="selectAll">
+                            </th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsTableBody">
+                        <!-- Events will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Success/Error Messages -->
+        <div id="messageBox" class="message-box hidden"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
